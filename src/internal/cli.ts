@@ -5,10 +5,11 @@ import { asMarkdown } from "./format";
 const helpMessage = `monorepo-license-checker
 
 Options:
-  --json      Output in JSON format.
-  --csv       Output in CSV format.
-  --markdown  Output in markdown format.
-  --help      The text you are reading right now :)
+  --json                    Output in JSON format.
+  --csv                     Output in CSV format.
+  --markdown                Output in markdown format.
+  --excludePrivatePackages  Restrict output to not include any package marked as private.
+  --help                    The text you are reading right now :)
 `;
 
 function format(argv: string[], modules: ModuleInfos): string {
@@ -32,7 +33,9 @@ export async function runCli() {
   if (argv.includes("-h") || argv.includes("--help")) {
     console.log(helpMessage);
   } else {
-    const modules = await checkLicenses();
+    const modules = await checkLicenses(process.cwd(), {
+      excludePrivatePackages: argv.includes("--excludePrivatePackages"),
+    });
     const output = format(argv, modules);
     console.log(output);
   }

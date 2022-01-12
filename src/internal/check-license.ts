@@ -27,7 +27,7 @@ function sortObject<T extends object>(unordered: T): T {
 
 export async function checkLicenses(
   cwd?: string,
-  options?: InitOpts
+  options?: Omit<InitOpts, "start">
 ): Promise<ModuleInfos> {
   const { root, packages } = await getPackages(cwd ?? process.cwd());
   const dirs = packages.map((p) => p.dir).concat(root.dir);
