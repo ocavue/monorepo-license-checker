@@ -1,0 +1,33 @@
+{
+  "name": "monorepo-license-checker",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./dist/monorepo-license-checker.cjs",
+  "module": "./dist/monorepo-license-checker.cjs",
+  "type": "commonjs",
+  "scripts": {
+    "build": "rm -rf dist && pnpm build:esbuild && pnpm build:tsc",
+    "build:esbuild": "esbuild --bundle --format=cjs --outfile=./dist/monorepo-license-checker.cjs --platform=node ./src/index.js",
+    "build:tsc": "tsc",
+    "test": "pnpm build && ./bin/monorepo-license-checker --help && ./bin/monorepo-license-checker && ./bin/monorepo-license-checker --markdown && ./bin/monorepo-license-checker --csv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocavue/monorepo-license-checker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ocavue/monorepo-license-checker/issues"
+  },
+  "homepage": "https://github.com/ocavue/monorepo-license-checker#readme",
+  "bin": {
+    "monorepo-license-checker": "./bin/monorepo-license-checker"
+  },
+  "devDependencies": {
+    "@manypkg/get-packages": "^1.1.3",
+    "esbuild": "^0.14.11",
+    "license-checker-rseidelsohn": "^2.2.0",
+    "typescript": "^4.5.4"
+  }
+}

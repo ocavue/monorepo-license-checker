@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+const checker = require("../dist/monorepo-license-checker.cjs");
+
+checker.runCli();
