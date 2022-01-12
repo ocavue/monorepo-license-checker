@@ -1,6 +1,6 @@
 {
   "name": "monorepo-license-checker",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "type": "commonjs",
   "main": "./dist/monorepo-license-checker.cjs",
