@@ -2,14 +2,15 @@
   "name": "monorepo-license-checker",
   "version": "0.1.0",
   "description": "",
-  "main": "./dist/monorepo-license-checker.cjs",
-  "module": "./dist/monorepo-license-checker.cjs",
   "type": "commonjs",
+  "main": "./dist/monorepo-license-checker.cjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && pnpm build:esbuild && pnpm build:tsc",
     "build:esbuild": "esbuild --bundle --format=cjs --outfile=./dist/monorepo-license-checker.cjs --platform=node ./src/index.js",
     "build:tsc": "tsc",
-    "test": "pnpm build && ./bin/monorepo-license-checker --help && ./bin/monorepo-license-checker && ./bin/monorepo-license-checker --markdown && ./bin/monorepo-license-checker --csv"
+    "test": "pnpm build && ./bin/monorepo-license-checker --help && ./bin/monorepo-license-checker && ./bin/monorepo-license-checker --markdown && ./bin/monorepo-license-checker --csv",
+    "prepublish": "pnpm test"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,9 @@
     "esbuild": "^0.14.11",
     "license-checker-rseidelsohn": "^2.2.0",
     "typescript": "^4.5.4"
-  }
+  },
+  "files": [
+    "./dist",
+    "./bin"
+  ]
 }
