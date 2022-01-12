@@ -1,13 +1,14 @@
-import { asTree, asCSV, ModuleInfos } from "license-checker-rseidelsohn";
+import { asCSV, asTree, ModuleInfos } from "license-checker-rseidelsohn";
 import { checkLicenses } from "./check-license";
-import { asMarkdown } from "./format";
+import { asMarkdownList, asMarkdownTable } from "./format";
 
 const helpMessage = `monorepo-license-checker
 
 Options:
   --json                    Output in JSON format.
   --csv                     Output in CSV format.
-  --markdown                Output in markdown format.
+  --markdown                Output in markdown list format.
+  --markdownTable           Output in markdown table format.
   --excludePrivatePackages  Restrict output to not include any package marked as private.
   --help                    The text you are reading right now :)
 `;
@@ -22,7 +23,11 @@ function format(argv: string[], modules: ModuleInfos): string {
   }
 
   if (argv.includes("--markdown")) {
-    return asMarkdown(modules);
+    return asMarkdownList(modules);
+  }
+
+  if (argv.includes("--markdownTable")) {
+    return asMarkdownTable(modules);
   }
 
   return asTree(modules);

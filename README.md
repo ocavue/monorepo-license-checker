@@ -18,7 +18,8 @@ $ monorepo-license-checker --help
 Options:
   --json                    Output in JSON format.
   --csv                     Output in CSV format.
-  --markdown                Output in markdown format.
+  --markdown                Output in markdown list format.
+  --markdownTable           Output in markdown table format.
   --excludePrivatePackages  Restrict output to not include any package marked as private.
   --help                    The text you are reading right now :)
 ```
