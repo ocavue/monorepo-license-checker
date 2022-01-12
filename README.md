@@ -1,0 +1,1 @@
+# monorepo-license-checker
