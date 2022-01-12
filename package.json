@@ -9,7 +9,7 @@
     "build": "rm -rf dist && pnpm build:esbuild && pnpm build:tsc",
     "build:esbuild": "esbuild --bundle --format=cjs --outfile=./dist/monorepo-license-checker.cjs --platform=node ./src/index.js",
     "build:tsc": "tsc",
-    "test": "pnpm build && ./bin/monorepo-license-checker --help && ./bin/monorepo-license-checker && ./bin/monorepo-license-checker --markdown && ./bin/monorepo-license-checker --markdownTable && ./bin/monorepo-license-checker --csv",
+    "test": "pnpm build && ./bin/monorepo-license-checker --help && ./bin/monorepo-license-checker && ./bin/monorepo-license-checker --markdown && ./bin/monorepo-license-checker --markdown-table --exclude-private-packages && ./bin/monorepo-license-checker --csv",
     "prepublish": "pnpm test"
   },
   "repository": {
