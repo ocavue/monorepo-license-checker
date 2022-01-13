@@ -1,5 +1,7 @@
 # monorepo-license-checker
 
+![npm](https://img.shields.io/npm/v/monorepo-license-checker)
+
 This is a simple wrapper for [license-checker-rseidelsohn](https://github.com/RSeidelsohn/license-checker-rseidelsohn) that allows you to check the license of your monorepo.
 
 ## CLI Usage
